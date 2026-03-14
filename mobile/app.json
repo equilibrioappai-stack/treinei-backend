@@ -10,6 +10,11 @@
     },
     "ios": {
       "bundleIdentifier": "com.treinei.app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4a899560-bae9-4d78-9e4f-660447b35dbf"
+      }
     }
   }
 }

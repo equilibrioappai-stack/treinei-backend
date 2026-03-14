@@ -1,7 +1,6 @@
-import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ActivityIndicator, View } from 'react-native';
 
 import { AuthProvider, useAuth } from './src/context/AuthContext';
@@ -12,7 +11,7 @@ import TreinoScreen from './src/screens/TreinoScreen';
 import HistoricoScreen from './src/screens/HistoricoScreen';
 import PerfilScreen from './src/screens/PerfilScreen';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function Navegacao() {
   const { usuario, carregando } = useAuth();
@@ -20,7 +19,7 @@ function Navegacao() {
   if (carregando) {
     return (
       <View style={{ flex: 1, backgroundColor: '#0D1117', justifyContent: 'center', alignItems: 'center' }}>
-       <ActivityIndicator color="#1DB954" size={36} />
+        <ActivityIndicator color="#1DB954" size={36} />
       </View>
     );
   }
