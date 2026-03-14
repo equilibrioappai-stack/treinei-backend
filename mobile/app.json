@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Treinei",
+    "slug": "treinei",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.treinei.app"
+    },
+    "ios": {
+      "bundleIdentifier": "com.treinei.app"
+    }
+  }
+}
