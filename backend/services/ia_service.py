@@ -1,3 +1,4 @@
+import hashlib
 import json
 import redis as redis_lib
 from config import settings
