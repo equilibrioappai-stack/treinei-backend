@@ -24,7 +24,6 @@ REGRAS OBRIGATÓRIAS — nunca viole:
 generation_config = {
     'temperature': 0.8,
     'max_output_tokens': 2000,
-    'response_mime_type': 'application/json',
 }
 
 def categorizar_porte(peso: float, altura: int) -> str:
