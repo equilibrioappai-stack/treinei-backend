@@ -2,7 +2,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // ⚠️ Copie a URL atual da aba PORTAS (porta 8000) do Codespace
-const BASE_URL = 'https://vigilant-funicular-5g7xxvv56prrc7v4v-8000.app.github.dev/';
+const BASE_URL = 'https://treinei-backend.onrender.com';
 
 const api = axios.create({
   baseURL: BASE_URL,
