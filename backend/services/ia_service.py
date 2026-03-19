@@ -80,7 +80,7 @@ async def _chamar_gemini(prompt: str) -> dict:
     import google.generativeai as genai
     genai.configure(api_key=settings.gemini_api_key)
     model = genai.GenerativeModel(
-        'gemini-pro",
+        'gemini-pro',
         generation_config=generation_config,
         system_instruction=SYSTEM_PROMPT,
     )
