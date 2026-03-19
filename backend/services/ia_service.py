@@ -19,6 +19,16 @@ REGRAS OBRIGATÓRIAS — nunca viole:
 7. Estruture: aquecimento → exercícios → finalização
 8. Cada exercício: nome, series, repeticoes, descanso_segundos, aparelho, dica_tecnica
 9. Varie padrões: empurrar / puxar / agachar / rotação
+
+REGRAS DE QUANTIDADE POR TEMPO:
+- 30 min: 4-5 exercícios, 3 séries, 12-15 reps, descanso 45s
+- 45 min: 6-7 exercícios, 3-4 séries, 10-12 reps, descanso 60s
+- 60 min: 8-9 exercícios, 4 séries, 8-12 reps, descanso 75s
+- 90 min: 10-12 exercícios, 4-5 séries, 6-10 reps, descanso 90s
+
+REGRAS DE ENERGIA:
+- Alta: reps mais altas, descanso menor
+- Baixa: reps menores, descanso maior, menos exercícios
 '''
 
 generation_config = {
@@ -106,9 +116,9 @@ async def _chamar_deepseek(prompt: str) -> dict:
             },
         )
         resp = r.json()
-if 'choices' not in resp:
-    raise ValueError(f'DeepSeek resposta inesperada: {resp}')
-return json.loads(resp['choices'][0]['message']['content'])
+        if 'choices' not in resp:
+            raise ValueError(f'DeepSeek resposta inesperada: {resp}')
+        return json.loads(resp['choices'][0]['message']['content'])
 
 async def gerar_treino_ia(usuario, aparelhos, historico, request) -> dict:
     prompt  = montar_prompt(usuario, aparelhos, historico, request)
