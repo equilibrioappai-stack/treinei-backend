@@ -80,7 +80,7 @@ async def _chamar_gemini(prompt: str) -> dict:
     import google.generativeai as genai
     genai.configure(api_key=settings.gemini_api_key)
     model = genai.GenerativeModel(
-        'gemini-pro',
+        'gemini-1.5-flash',
         generation_config=generation_config,
         system_instruction=SYSTEM_PROMPT,
     )
@@ -105,7 +105,10 @@ async def _chamar_deepseek(prompt: str) -> dict:
                 'response_format': {'type': 'json_object'},
             },
         )
-        return json.loads(r.json()['choices'][0]['message']['content'])
+        resp = r.json()
+if 'choices' not in resp:
+    raise ValueError(f'DeepSeek resposta inesperada: {resp}')
+return json.loads(resp['choices'][0]['message']['content'])
 
 async def gerar_treino_ia(usuario, aparelhos, historico, request) -> dict:
     prompt  = montar_prompt(usuario, aparelhos, historico, request)
