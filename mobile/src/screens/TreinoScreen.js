@@ -10,8 +10,8 @@ export default function TreinoScreen({ route, navigation }) {
   const [avaliacao, setAvaliacao] = useState(null);
   const [avaliado, setAvaliado] = useState(false);
 
-  const exercicios = treino?.treino_json?.exercicios || treino?.exercicios || [];
-  const grupo = treino?.grupo_muscular || treino?.treino_json?.grupo_muscular || '';
+  const exercicios = treino?.treino_json?.treino?.exercicios || treino?.treino_json?.exercicios || treino?.exercicios || [];
+  const grupo = treino?.grupo_muscular || treino?.treino_json?.treino?.grupo_muscular || treino?.treino_json?.grupo_muscular || '';
 
   async function handleAvaliar(nota) {
     if (avaliado) return;
