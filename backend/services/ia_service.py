@@ -33,7 +33,7 @@ REGRAS DE ENERGIA:
 
 generation_config = {
     'temperature': 0.8,
-    'max_output_tokens': 2000,
+    'max_output_tokens': 8192,
 }
 
 def categorizar_porte(peso: float, altura: int) -> str:
