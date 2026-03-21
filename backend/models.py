@@ -33,6 +33,8 @@ class AvaliacaoSchema(BaseModel):
 class PerfilUpdateSchema(BaseModel):
     nome: Optional[str] = None
     peso: Optional[float] = None
+    altura: Optional[int] = None
+    idade: Optional[int] = None
     objetivo: Optional[str] = None
     nivel: Optional[str] = None
     restricoes: Optional[str] = None
