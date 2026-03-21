@@ -206,9 +206,9 @@ const styles = StyleSheet.create({
   nomeExercicio: { fontSize: 16, fontWeight: 'bold', color: '#fff', flex: 1 },
   nomeRiscado: { textDecorationLine: 'line-through', color: '#666' },
   info: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-  infoItem: { flex: 1, alignItems: 'center' },
+  infoItem: { flex: 1, alignItems: 'center', paddingHorizontal: 4},
   infoDivisor: { width: 1, height: 30, backgroundColor: '#2A3F55' },
-  infoValor: { fontSize: 20, fontWeight: 'bold', color: '#1DB954' },
+  infoValor: { fontSize: 16, fontWeight: 'bold', color: '#1DB954', textAlign: 'center' },
   infoLabel: { fontSize: 11, color: '#888', marginTop: 2 },
   aparelho: { color: '#666', fontSize: 12, marginBottom: 6 },
   dica: {
