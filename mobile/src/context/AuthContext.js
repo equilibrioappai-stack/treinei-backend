@@ -23,22 +23,31 @@ export function AuthProvider({ children }) {
   async function entrar(email, senha) {
     const dados = await login(email, senha);
     setUsuario(dados.usuario);
+    await AsyncStorage.setItem('usuario', JSON.stringify(dados.usuario));
     return dados;
   }
 
   async function registrar(dados) {
     const r = await cadastro(dados);
     setUsuario(r.usuario);
+    await AsyncStorage.setItem('usuario', JSON.stringify(r.usuario));
     return r;
+  }
+
+  async function atualizarUsuario(novosDados) {
+    const atualizado = { ...usuario, ...novosDados };
+    setUsuario(atualizado);
+    await AsyncStorage.setItem('usuario', JSON.stringify(atualizado));
   }
 
   async function sair() {
     await logout();
+    await AsyncStorage.removeItem('usuario');
     setUsuario(null);
   }
 
   return (
-    <AuthContext.Provider value={{ usuario, carregando, entrar, registrar, sair }}>
+    <AuthContext.Provider value={{ usuario, carregando, entrar, registrar, sair, atualizarUsuario }}>
       {children}
     </AuthContext.Provider>
   );

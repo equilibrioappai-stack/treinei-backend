@@ -4,11 +4,11 @@ import {
   StyleSheet, Alert, ActivityIndicator, TextInput
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { aplicarPerfil, getPerfil } from '../services/api';
+import { aplicarPerfil } from '../services/api';
 import api from '../services/api';
 
 export default function PerfilScreen({ navigation }) {
-  const { usuario, sair } = useAuth();
+  const { usuario, sair, atualizarUsuario } = useAuth();
   const [carregandoPerfil, setCarregandoPerfil] = useState(false);
   const [perfilAplicado, setPerfilAplicado] = useState(null);
   const [editando, setEditando] = useState(false);
@@ -32,11 +32,13 @@ export default function PerfilScreen({ navigation }) {
 
   async function handleSalvarDados() {
     try {
-      await api.patch('/usuarios/perfil', {
+      const novosDados = {
         peso: dados.peso ? parseFloat(dados.peso) : null,
         altura: dados.altura ? parseInt(dados.altura) : null,
         idade: dados.idade ? parseInt(dados.idade) : null,
-      });
+      };
+      await api.patch('/usuarios/perfil', novosDados);
+      await atualizarUsuario(novosDados);
       setEditando(false);
       Alert.alert('Sucesso', 'Dados salvos!');
     } catch {
